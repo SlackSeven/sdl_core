@@ -96,8 +96,6 @@ class MockPolicyManager : public PolicyManager {
            std::vector<policy::FunctionalGroupPermission>& permissions));
   MOCK_METHOD2(SetUserConsentForDevice,
                void(const std::string& device_id, const bool is_allowed));
-  MOCK_METHOD2(ReactOnUserDevConsentForApp,
-               bool(const std::string app_id, bool is_device_allowed));
   MOCK_METHOD3(ReactOnUserDevConsentForApp,
                bool(const transport_manager::DeviceHandle& device_handle,
                     const std::string app_id,
@@ -117,9 +115,6 @@ class MockPolicyManager : public PolicyManager {
                     const policy::DeviceInfo& device_info));
   MOCK_METHOD1(SetUserConsentForApp,
                void(const policy::PermissionConsent& permissions));
-  MOCK_CONST_METHOD2(GetDefaultHmi,
-                     bool(const std::string& policy_app_id,
-                          std::string* default_hmi));
   MOCK_CONST_METHOD3(GetDefaultHmi,
                      bool(const std::string& device_id,
                           const std::string& policy_app_id,
@@ -137,14 +132,10 @@ class MockPolicyManager : public PolicyManager {
       void(const std::string& device_id,
            const std::string& policy_app_id,
            std::vector<policy::FunctionalGroupPermission>& permissions));
-  MOCK_METHOD1(GetAppPermissionsChanges,
-               policy::AppPermissions(const std::string& policy_app_id));
   MOCK_METHOD2(GetAppPermissionsChanges,
                policy::AppPermissions(const std::string& device_id,
                                       const std::string& policy_app_id));
   MOCK_METHOD1(RemovePendingPermissionChanges, void(const std::string& app_id));
-  MOCK_CONST_METHOD1(GetCurrentDeviceId,
-                     std::string&(const std::string& policy_app_id));
   MOCK_CONST_METHOD2(
       GetCurrentDeviceId,
       std::string&(const transport_manager::DeviceHandle& device_handle,
@@ -154,26 +145,16 @@ class MockPolicyManager : public PolicyManager {
                void(const std::string& ccpu_version,
                     const std::string& wers_country_code,
                     const std::string& language));
-  MOCK_METHOD1(SendNotificationOnPermissionsUpdated,
-               void(const std::string& application_id));
   MOCK_METHOD2(SendNotificationOnPermissionsUpdated,
                void(const std::string& device_id,
                     const std::string& application_id));
   MOCK_METHOD1(MarkUnpairedDevice, void(const std::string& device_id));
-  MOCK_METHOD2(
-      AddApplication,
-      StatusNotifier(
-          const std::string& application_id,
-          const rpc::policy_table_interface_base::AppHmiTypes& hmi_types));
   MOCK_METHOD3(
       AddApplication,
       StatusNotifier(
           const std::string& device_id,
           const std::string& application_id,
           const rpc::policy_table_interface_base::AppHmiTypes& hmi_types));
-  MOCK_METHOD2(SetDefaultHmiTypes,
-               void(const std::string& application_id,
-                    const std::vector<int>& hmi_types));
   MOCK_METHOD3(SetDefaultHmiTypes,
                void(const transport_manager::DeviceHandle& device_handle,
                     const std::string& application_id,
@@ -203,8 +184,6 @@ class MockPolicyManager : public PolicyManager {
   MOCK_METHOD1(SaveUpdateStatusRequired, void(bool is_update_needed));
   MOCK_METHOD0(OnAppsSearchStarted, void());
   MOCK_METHOD1(OnAppsSearchCompleted, void(const bool trigger_ptu));
-  MOCK_METHOD1(OnAppRegisteredOnMobile,
-               void(const std::string& application_id));
   MOCK_METHOD2(OnAppRegisteredOnMobile,
                void(const std::string& device_id,
                     const std::string& application_id));
