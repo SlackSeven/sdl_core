@@ -1916,7 +1916,7 @@
                 "LockScreenDismissalWarning":{
                     "languages":{
                         "en-us":{
-                            "textBody": "Swipe up to dismiss, acknowledging that you are not the driver"
+                            "textBody": "Swipe down to dismiss, acknowledging that you are not the driver"
                         }
                     }
                 },
