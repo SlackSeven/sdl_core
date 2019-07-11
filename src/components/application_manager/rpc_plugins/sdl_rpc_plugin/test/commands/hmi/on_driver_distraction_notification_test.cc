@@ -72,7 +72,7 @@ const mobile_apis::Language::eType kMobileLanguage =
 
 // LSDW - lock screen dismissal warning
 const std::string kLockScreenDismissalWarningMessage_en =
-    "Swipe up to dismiss, acknowledging that you are not the driver";
+    "Swipe down to dismiss, acknowledging that you are not the driver";
 const uint32_t kConnectionKey = 2u;
 }  // namespace
 
