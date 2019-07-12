@@ -157,17 +157,17 @@ if(ENABLE_LOG)
   set(install-3rd_party_logger_var "install-3rd_party_logger")
   endif()
 
-  set(APR_LIBS_DIRECTORY ${3RD_PARTY_INSTALL_PREFIX_ARCH}/lib PARENT_SCOPE)
-  set(APR_INCLUDE_DIRECTORY ${3RD_PARTY_INSTALL_PREFIX}/include PARENT_SCOPE)
-  set(APR_UTIL_LIBS_DIRECTORY ${3RD_PARTY_INSTALL_PREFIX_ARCH}/lib PARENT_SCOPE)
+  # set(APR_LIBS_DIRECTORY ${3RD_PARTY_INSTALL_PREFIX_ARCH}/lib PARENT_SCOPE)
+  # set(APR_INCLUDE_DIRECTORY ${3RD_PARTY_INSTALL_PREFIX}/include PARENT_SCOPE)
+  # set(APR_UTIL_LIBS_DIRECTORY ${3RD_PARTY_INSTALL_PREFIX_ARCH}/lib PARENT_SCOPE)
   set(LOG4CXX_INCLUDE_DIRECTORY ${3RD_PARTY_INSTALL_PREFIX}/include PARENT_SCOPE)
   set(LOG4CXX_LIBS_DIRECTORY ${3RD_PARTY_INSTALL_PREFIX_ARCH}/lib PARENT_SCOPE)
 
-  # --- libapr-1
-  add_subdirectory(apr-cmake)
+  # # --- libapr-1
+  # add_subdirectory(apr-cmake)
 
-  # --- apr-util
-  add_subdirectory(apr-util-cmake)
+  # # --- apr-util
+  # add_subdirectory(apr-util-cmake)
 
   # --- log4cxx
   add_subdirectory(apache-log4cxx-cmake)

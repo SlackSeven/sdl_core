@@ -32,6 +32,8 @@ include(${CMAKE_SOURCE_DIR}/tools/cmake/helpers/platform.cmake)
 include(${CMAKE_SOURCE_DIR}/tools/cmake/helpers/sources.cmake)
 
 find_package(Sqlite3 REQUIRED)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(APR REQUIRED apr-1 apr-util-1)
 
 include_directories (
   ${COMPONENTS_DIR}/utils/include
@@ -39,6 +41,7 @@ include_directories (
   ${COMPONENTS_DIR}/media_manager/include
   ${COMPONENTS_DIR}/protocol_handler/include
   ${LOG4CXX_INCLUDE_DIRECTORY}
+  ${APR_INCLUDE_DIRS}
 )
 
 # dbms
@@ -66,8 +69,7 @@ endif()
 if(ENABLE_LOG)
   list(APPEND LIBRARIES
 	log4cxx -L${LOG4CXX_LIBS_DIRECTORY}
-    apr-1 -L${APR_LIBS_DIRECTORY}
-    aprutil-1 -L${APR_UTIL_LIBS_DIRECTORY}
+    ${APR_LIBRARIES}
 	ConfigProfile
   )
 else()

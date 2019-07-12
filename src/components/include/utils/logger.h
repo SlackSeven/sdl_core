@@ -86,7 +86,7 @@ log4cxx_time_t time_now();
               accumulator.str(),                                     \
               time_now(),                                            \
               LOG4CXX_LOCATION,                                      \
-              ::log4cxx::spi::LoggingEvent::getCurrentThreadName()); \
+              "somethread"); \
         }                                                            \
       }                                                              \
     }                                                                \

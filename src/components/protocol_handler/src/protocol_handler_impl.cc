@@ -1469,7 +1469,7 @@ RESULT_CODE ProtocolHandlerImpl::HandleControlMessageStartSession(
       logger_,
       "Protocol version:" << static_cast<int>(packet->protocol_version()));
   const ServiceType service_type = ServiceTypeFromByte(packet->service_type());
-  const uint8_t protocol_version = packet->protocol_version();
+  // const uint8_t protocol_version = packet->protocol_version();
   BsonObject bson_obj;
   if (packet->data() != NULL) {
     bson_obj = bson_object_from_bytes(packet->data());

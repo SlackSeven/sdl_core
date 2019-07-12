@@ -47,7 +47,7 @@ AutoTrace::AutoTrace(log4cxx::LoggerPtr logger,
              "Enter",
              apr_time_now(),
              location_,
-             ::log4cxx::spi::LoggingEvent::getCurrentThreadName());
+             "some thread?");
   }
 }
 
@@ -59,7 +59,7 @@ AutoTrace::~AutoTrace() {
              apr_time_now(),
              location_,  // the location corresponds rather to creation of
                          // autotrace object than to deletion
-             ::log4cxx::spi::LoggingEvent::getCurrentThreadName());
+             "some thread?");
   }
 }
 
